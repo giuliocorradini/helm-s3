@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+https://github.com/giuliocorradini/helm-s3#!/usr/bin/env sh
 
 PROJECT_NAME="helm-s3"
 PROJECT_GH="hypnoglow/$PROJECT_NAME"
@@ -96,4 +96,8 @@ checksums_filename="releases/v${version}_checksums.txt"
 )
 
 # Unpack the binary.
-tar xzf "${binary_filename}" bin/helm-s3
+if [[ "$os" == "windows" ]]; then
+    tar xzf "${binary_filename}" "bin/helm-s3.exe"
+else
+    tar xzf "${binary_filename}" "bin/helm-s3"
+fi
